@@ -1,0 +1,264 @@
+.registrarse .arrow-left-1 {
+  width: 16px;
+  height: 16px;
+}
+.registrarse .button-521 {
+  border-radius: 8px;
+  background: #F3F4F6;
+  margin: 30px 87px 28px 0;
+  display: flex;
+  padding: 10px;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+}
+.registrarse .image-1 {
+  background: url('../assets/images/image.png');
+  margin-right: 7px;
+  width: 84px;
+  height: 94px;
+}
+.registrarse .comment-analyze-1 {
+  margin: 33px 0 31px 0;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Noto Sans';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #323743;
+}
+.registrarse .container-1 {
+  margin-bottom: 107px;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.registrarse .registrate {
+  margin: 0 238.1px 6px 0;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Noto Sans';
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.4;
+  color: #171A1F;
+}
+.registrarse .comment-analyze {
+  margin: 0 88.8px 35px 0;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: 'Noto Sans';
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.4;
+  color: #003972;
+}
+.registrarse .usuario {
+  margin-bottom: 1px;
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Sarabun';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.556;
+  color: #424856;
+}
+.registrarse .example-emailgmail-com {
+  overflow-wrap: break-word;
+  font-family: 'Sarabun';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.556;
+  color: #BDC1CA;
+}
+.registrarse .textfield {
+  border-radius: 8px;
+  background: #F3F4F6;
+  padding: 12px 20px 11px 20px;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.registrarse .textbox-3 {
+  margin: 0 1px 21px 0;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.registrarse .contrasea {
+  margin-bottom: 1px;
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Sarabun';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.556;
+  color: #424856;
+}
+.registrarse .example-password {
+  overflow-wrap: break-word;
+  font-family: 'Sarabun';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.556;
+  color: #BDC1CA;
+}
+.registrarse .textfield-1 {
+  border-radius: 8px;
+  background: #F3F4F6;
+  padding: 12px 20px 11px 20px;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.registrarse .textbox-31 {
+  margin: 0 3px 21px 0;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.registrarse .repetir-contrasea {
+  margin-bottom: 1px;
+  display: inline-block;
+  align-self: flex-start;
+  overflow-wrap: break-word;
+  font-family: 'Sarabun';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.556;
+  color: #424856;
+}
+.registrarse .example-password-1 {
+  overflow-wrap: break-word;
+  font-family: 'Sarabun';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.556;
+  color: #BDC1CA;
+}
+.registrarse .textfield-2 {
+  border-radius: 8px;
+  background: #F3F4F6;
+  padding: 12px 20px 11px 20px;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.registrarse .textbox-32 {
+  margin: 0 1px 101px 0;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.registrarse .line-5 {
+  background: #DEE1E6;
+  margin: 0 3px 34px 0;
+  width: 429px;
+  height: 1px;
+}
+.registrarse .crear-cuenta {
+  margin-right: 7.2px;
+  overflow-wrap: break-word;
+  font-family: 'Sarabun';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.556;
+  color: #FFFFFF;
+}
+.registrarse .arrow-right {
+  margin: 2px 0;
+  width: 24px;
+  height: 24px;
+}
+.registrarse .button-7 {
+  border-radius: 8px;
+  background: #050738;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  padding: 12px 0;
+  width: 430px;
+  box-sizing: border-box;
+}
+.registrarse .container-27 {
+  border-radius: 6px;
+  background: #FFFFFF;
+  margin-right: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 29px 35px 47px 35px;
+  width: 590px;
+  box-sizing: border-box;
+}
+.registrarse .image {
+  background: url('../assets/images/image_1.png');
+  margin-bottom: 36px;
+  width: 525px;
+  height: 400px;
+}
+.registrarse .line-34 {
+  background: #DEE1E6;
+  margin-right: 12px;
+  width: 617px;
+  height: 1px;
+}
+.registrarse .container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 629px;
+  height: fit-content;
+  box-sizing: border-box;
+}
+.registrarse .lcircle-1 {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 188px;
+  height: 188px;
+}
+.registrarse .container-159 {
+  border-radius: 0 12px 12px 0;
+  background: #003972;
+  position: relative;
+  display: flex;
+  padding: 186px 67px 149px 66px;
+  width: 762px;
+  box-sizing: border-box;
+}
+.registrarse .container-2 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.registrarse .arrow-left {
+  width: 16px;
+  height: 16px;
+}
+.registrarse .button-52 {
+  border-radius: 8px;
+  background: #F3F4F6;
+  position: absolute;
+  left: 34px;
+  top: 69px;
+  display: flex;
+  padding: 10px;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+}
+.registrarse {
+  box-shadow: 0px 3px 6px 0px rgba(18, 15, 40, 0.12);
+  background: #FFFFFF;
+  display: flex;
+  width: 1440px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,179 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 0%;
+}
+.container1 {
+    background-color: rgb(1, 1, 61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 0%;
+    
+}
+.boxsin {
+    background-color: white;
+    width: 50%; 
+    padding: 20px;
+    height: 600px;
+    text-align: center;
+    padding-top: 0%;
+    padding-left: 0%;
+}
+.boxsin12{
+    background-color:  rgb(1, 1, 61);
+    width: 50%;
+    padding: 20px;  
+    text-align: center;
+    height: 600px;
+}
+.imagen1{
+    align-items: center;
+    height: 330px;
+    width: 70%;
+    border-radius: 20px;
+}
+
+.inicio {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom:0px ;
+    
+}
+.inicio1_1{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 20%;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom:0px ;
+    
+}
+.inicio1_2{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 20%;
+    padding: 0px;
+    margin: 0px;
+    
+}
+.inicio1_3{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 20%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.inicio2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    
+}
+
+.imagen_banner{
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+}
+.h1_pag1{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(1, 1, 61);
+    font-size: 30px;
+    margin: 0;
+    padding-left: 165px;
+    text-align: left; 
+    
+}
+.h1_pag2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    margin: 0;
+    padding-left: 165px;
+    text-align: left; 
+    
+}
+
+.a_inicio{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(45, 223, 230);
+}
+.text {
+    font-size: 18px;
+    margin: 0;
+    padding-left: 165px;
+    text-align: left; 
+}
+.text1 {
+    font-size: 20px;
+    margin: 0;
+    text-align: left; 
+}
+.text2 {
+    font-size: 18px;
+    margin: 0;
+    text-align: center; 
+}
+.boton2{
+    background-color: rgb(1, 1, 61);
+    border-bottom: rgb(1, 1, 61);
+    color: #ffffff;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 15px;
+
+}
+.boton2:hover{
+    background-color: white;
+    color: rgb(45, 223, 230);
+}
+
+.boton1{
+    background-color: rgb(1, 1, 61);
+    border-bottom: rgb(1, 1, 61);
+    color: #ffffff;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 15px;
+
+}
+.boton1:hover{
+    background-color: white;
+    color: rgb(45, 223, 230);
+}
+.textobox{
+    background-color: rgb(224, 224, 241);
+    color: #000000;
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+}
+.espaciado{
+    padding-top: 0px;
+}

@@ -8,7 +8,11 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
+<<<<<<< HEAD
 set VIRTUAL_ENV=C:\Users\Erick\Downloads\Backend\Backend\.venv
+=======
+set VIRTUAL_ENV=C:\Users\david\Documents\Proyecto Pan\Backend\.venv
+>>>>>>> 7482f2d (Se añadio la funcionalidad para recopilas los comentarios en base al video)
 
 if not defined PROMPT set PROMPT=$P$G
 

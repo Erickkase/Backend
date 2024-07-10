@@ -3,6 +3,10 @@ from fastapi import FastAPI, HTTPException
 from googleapiclient.discovery import build
 from pydantic import BaseModel
 from typing import List
+<<<<<<< HEAD
+=======
+from urllib.parse import urlparse, parse_qs
+>>>>>>> 7482f2d (Se añadio la funcionalidad para recopilas los comentarios en base al video)
 
 app = FastAPI()
 YOUTUBE_API_KEY = "AIzaSyBaMHRgO6vINzR9QuRr2CG0dhILlevjhGU"
@@ -12,13 +16,22 @@ YOUTUBE_API_KEY = "AIzaSyBaMHRgO6vINzR9QuRr2CG0dhILlevjhGU"
 def get_channel_id_by_handle(handle: str) -> str:
     youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
     
+<<<<<<< HEAD
     request = youtube.channels().list(
         part="id",
         forUsername=handle
+=======
+    request = youtube.search().list(
+        part="snippet",
+        q=handle,
+        type="channel",
+        maxResults=1
+>>>>>>> 7482f2d (Se añadio la funcionalidad para recopilas los comentarios en base al video)
     )
     response = request.execute()
     
     if "items" in response and len(response["items"]) > 0:
+<<<<<<< HEAD
         return response["items"][0]["id"]
     else:
         # Si no encuentra el canal por nombre de usuario, intenta buscarlo como un "handle"
@@ -31,6 +44,11 @@ def get_channel_id_by_handle(handle: str) -> str:
             return response["items"][0]["id"]
         else:
             raise HTTPException(status_code=404, detail="Channel not found")
+=======
+        return response["items"][0]["snippet"]["channelId"]
+    else:
+        raise HTTPException(status_code=404, detail="Channel not found")
+>>>>>>> 7482f2d (Se añadio la funcionalidad para recopilas los comentarios en base al video)
 
 # Función para obtener los últimos videos del canal
 def get_latest_videos(channel_id: str):
@@ -46,8 +64,52 @@ def get_latest_videos(channel_id: str):
     
     return [{"title": item["snippet"]["title"], "url": f"https://www.youtube.com/watch?v={item['id']['videoId']}"} for item in response.get("items", []) if item["id"]["kind"] == "youtube#video"]
 
+<<<<<<< HEAD
+=======
+# Función para obtener el ID del video a partir de la URL
+def get_video_id_from_url(url: str) -> str:
+    parsed_url = urlparse(url)
+    video_id = parse_qs(parsed_url.query).get("v")
+    if video_id:
+        return video_id[0]
+    else:
+        raise HTTPException(status_code=400, detail="Invalid YouTube URL")
+
+# Función para obtener los comentarios más likeados de un video
+def get_top_comments(video_id: str):
+    youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
+    
+    request = youtube.commentThreads().list(
+        part="snippet",
+        videoId=video_id,
+        maxResults=5,
+        order="relevance"
+    )
+    response = request.execute()
+    
+    comments = []
+    for item in response.get("items", []):
+        top_comment = item["snippet"]["topLevelComment"]["snippet"]
+        comments.append({
+            "author": top_comment["authorDisplayName"],
+            "text": top_comment["textDisplay"],
+            "likes": top_comment["likeCount"]
+        })
+    
+    return comments
+
+>>>>>>> 7482f2d (Se añadio la funcionalidad para recopilas los comentarios en base al video)
 @app.get("/latest_videos/")
 def latest_videos(handle: str):
     channel_id = get_channel_id_by_handle(handle)
     videos = get_latest_videos(channel_id)
     return {"videos": videos}
+<<<<<<< HEAD
+=======
+
+@app.get("/top_comments/")
+def top_comments(video_url: str):
+    video_id = get_video_id_from_url(video_url)
+    comments = get_top_comments(video_id)
+    return {"comments": comments}
+>>>>>>> 7482f2d (Se añadio la funcionalidad para recopilas los comentarios en base al video)

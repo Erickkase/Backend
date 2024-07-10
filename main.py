@@ -4,8 +4,22 @@ from googleapiclient.discovery import build
 from pydantic import BaseModel
 from typing import List
 from urllib.parse import urlparse, parse_qs
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 YOUTUBE_API_KEY = "AIzaSyBaMHRgO6vINzR9QuRr2CG0dhILlevjhGU"
 
 # Función para obtener el ID del canal a partir del handle

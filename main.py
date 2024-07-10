@@ -82,3 +82,23 @@ def top_comments(video_url: str):
     video_id = get_video_id_from_url(video_url)
     comments = get_top_comments(video_id)
     return {"comments": comments}
+
+@app.get("/top_comments_latest_videos/")
+def top_comments_latest_videos(handle: str):
+    # Obtener el ID del canal
+    channel_id = get_channel_id_by_handle(handle)
+    
+    # Obtener los últimos 5 videos del canal
+    videos = get_latest_videos(channel_id)
+    
+    # Obtener los comentarios más populares de cada video
+    top_comments_all_videos = []
+    for video in videos:
+        video_id = get_video_id_from_url(video["url"])
+        top_comments = get_top_comments(video_id)
+        top_comments_all_videos.extend(top_comments)
+    
+    # Ordenar los comentarios por likes de manera descendente
+    top_comments_sorted = sorted(top_comments_all_videos, key=lambda x: x["likes"], reverse=True)[:25]
+    
+    return {"top_comments": top_comments_sorted}

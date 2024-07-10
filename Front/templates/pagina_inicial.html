@@ -12,10 +12,10 @@
         <hr style color="EEF5F6">
         <nav class="nav_inicio">
             <img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_banner">
-            <h1 class="h1_inicio" align="left">Comment Analyze</h1>
+            <h1 class="h1_inicio">Comment Analyze</h1>
             <ul class="ul_inicio">
-                <li class="li_inicio"><a class="a_inicio" href=""> Iniciar Sesion </a></li>
-                <li class="li_inicio"><a class="a_inicio" href=""> Registrarse </a></li>
+                <li class="li_inicio"><a class="a_inicio" href="/InicioSesion"> Iniciar Sesion </a></li>
+                <li class="li_inicio"><a class="a_inicio" href="/Registrarse"> Registrarse </a></li>
             </ul>
         </nav>
     </header>
@@ -101,17 +101,13 @@
 
         <div class="container1"> 
             <div class="boxsin1" align="center">
-                <input class="boton2" type="button" name="boton_comenzar" value="  Comenzar  ">
+                <a href="/InicioSesion"><input class="boton2" type="button" name="boton_comenzar" value="  Comenzar  " ></a>
                 <br>
                 <br>
                 <br>  
             </div>
-
         </div>
-        
-   
     </div>
-
 </body>
 
 </html>

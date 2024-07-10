@@ -8,6 +8,8 @@
     height: 5%;
     width: 5%;
     border-radius: 20px;
+    padding-right: 0%;
+    padding-left: 0%;
 }
 
 .imagen_2{
@@ -30,14 +32,17 @@
     align-items:left;
     justify-content: space-between;   
     padding-top: 0%;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 0%;
+    padding-right: 0%;
     font-weight: bold;        
 }
 
 .h1_inicio{
     color: white;
     font-size: 30px;
+    text-align: center;
+    padding-left: 0%;
+    padding-right: 0%;
 }
 .h1_pag1{
     color: rgb(1, 1, 61);
@@ -54,7 +59,6 @@
 }
 
 .li_inicio {
-
     display: inline-block;
     padding: 0px 20px;    
 }

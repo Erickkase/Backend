@@ -29,20 +29,40 @@
                         <p class="h1_pag1">Comment Analyze</p>
                         <br>
                         <br>
-                        <p class="text">Nombre Completo</p>
-                        <p class="espaciado" align="center"><input  class="textobox"  type="text"></p>         
-                        <p class="text">Usuario</p>
-                        <p class="espaciado" align="center"><input  class="textobox"  type="text"></p>
-                        <p class="text">Contraseña</p>
-                        <p class="espaciado" align="center"><input class="textobox" type="text"></p>
-                        <p class="text">Repetir Contraseña</p>
-                        <p class="espaciado" align="center"><input  class="textobox"  type="text"></p>
-                        <br>
-                        <hr>   
-                        <br>
-                        <a href="/InicioSesion"><input class="boton2" type="button" name="boton_continuar" value=" Crear Cuenta "></a>
-                        
-                        
+                        <form action="/Registrarse" method="POST" onsubmit="return validarFormulario()">
+                            <p class="text">Nombre Completo</p>
+                            <p class="espaciado" align="center"><input  class="textobox" name="nombres"  type="text" id="txt_nombres"></p>         
+                            <p class="text">Usuario</p>
+                            <p class="espaciado" align="center"><input  class="textobox" name="usuario"  type="text" id="txt_usuario"></p>
+                            <p class="text">Contraseña</p>
+                            <p class="espaciado" align="center"><input class="textobox"  name="password" type="text" id="txt_password"></p>
+                            <p class="text">Repetir Contraseña</p>
+                            <p class="espaciado" align="center"><input  class="textobox" name="rpassword" type="password" id="txt_rpassword"></p>
+                            <br>
+                            <hr>   
+                            <br>
+                            <input class="boton2" type="submit"  name="boton_continuar" value=" Crear Cuenta " id="btn_crearcuenta">
+                        </form>
+                        <script type="text/javascript">
+                            function validarFormulario() {
+                                let nombres = document.getElementById("txt_nombres").value;
+                                let usuario = document.getElementById("txt_usuario").value;
+                                let password = document.getElementById("txt_password").value;
+                                let rpassword = document.getElementById("txt_rpassword").value;
+                    
+                                if (nombres === "" || usuario === "" || password === "" || rpassword === "") {
+                                    alert("Por favor, complete todos los campos.");
+                                    return false;
+                                }
+                    
+                                if (password !== rpassword) {
+                                    alert("Las contraseñas no coinciden.");
+                                    return false;
+                                }
+                    
+                                return true;
+                            }
+                        </script>
                     </div>
                       
                 </div>

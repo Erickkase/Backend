@@ -26,41 +26,29 @@
                         </div>
                     </div>
                     <div class="inicio3">
-                        <br>
-                        <br>
-                        <br>
-                    
+                        <br><br><br>
                         <p class="h1_pag2">Inicia Sesión</p>
                         <p class="h1_pag1">Comment Analyze</p>
                         <br>
                         <br>
-                        <p class="text">Usuario</p>
-                        <p class="espaciado" align="center"><input  class="textobox"  type="text"></p>
-                        <p class="text">Contraseña</p>
-                        <p class="espaciado" align="center"><input class="textobox" type="text"></p>
-                        <br>
-                        <br>
-                        <br>
-                        <hr>   
-                        <br>
-                        <input class="boton2" type="button" name="boton_continuar" value=" Continua ->">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <p class="text2">¿No tienes una cuenta? <a href="/Registrarse">Registrate</a></p>
-                        
+                        <form action="/InicioSesion" method="post">
+                            <p class="text">Usuario</p>
+                            <p class="espaciado" align="center"><input  class="textobox"  type="text" name ="usuario"></p>
+                            <p class="text">Contraseña</p>
+                            <p class="espaciado" align="center"><input class="textobox" type="text" name="password"></p>
+                            <br><br><br>
+                            <hr>   
+                            <br>
+                            <input class="boton2" type="submit" name="boton_continuar" value=" Continua ">
+                        </form>
+                        <br><br><br>
+                        <p class="text2">¿No tienes una cuenta? <a href="/Registrarse">Registrate</a></p>    
                     </div>
                       
                 </div>
                 <div class="boxsin12">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    <br><br><br><br>
                     <p align="center"><img src="{{url_for('static', filename='./Images/image_1.png')}}" class="imagen1"></p>
-
                     <hr>
                 </div>
         </div>

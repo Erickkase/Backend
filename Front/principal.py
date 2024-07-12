@@ -15,82 +15,78 @@ from sqlalchemy.orm import declarative_base
 
 app = Flask(__name__)
 
-
-def conexion():
-    # Conexion con nuestros datos
-    server = 'DESKTOP-MPK3557'
-    bd = 'Comment_Analize'
-    user = 'BD_CommentAnalize'
-    password = '12345678'
-    try:
-        conexion2 = pyodbc.connect(
-            f'DRIVER={{ODBC Driver 17 for SQL Server}};'
-            f'SERVER={server};'
-            f'DATABASE={bd};'
-            f'UID={user};'
-            f'PWD={password}'
-        )
-        print("Conexion exitosa con la BD")
-    except pyodbc.Error as error:
-        print("No se establecio conexion con BD")
-        print(error)
-
 # Configuración de la base de datos
-DATABASE_URI = 'mssql+pyodbc://BD_CommentAnalize:12345678@DESKTOP-MPK3557/Comment_Analize?driver=ODBC+Driver+17+for+SQL+Server'
+conexion_db = 'mssql+pyodbc://BD_CommentAnalize:12345678@DESKTOP-MPK3557/Comment_Analize?driver=ODBC+Driver+17+for+SQL+Server'
 
-if DATABASE_URI:
-    print("Conexion 2")
+if conexion_db:
+    print("Conexión exitosa con la base de datos")
 else:
-    print(" No hay Conexion 2")  
-# Crear motor de base de datos SQLAlchemy
-engine = create_engine(DATABASE_URI)
+    print("No se pudo realizar la conexion con la base de datos")  
 
+# Crear motor(comunicación) de base de datos SQLAlchemy
+engine = create_engine(conexion_db)
+
+#Definir los datos
 Base = declarative_base()
 
 class Usuarios(Base):
-    __tablename__ = 'Users'  # Nombre de la tabla existente
+    __tablename__ = 'Users'  # Nombre de la tabla y sus distintas columnas
     ID = Column(Integer, primary_key=True)
-    Usuario = Column(String(50), nullable=False)
+    Usuario = Column(String(50), nullable=False, unique=True)
     Password = Column(String(50), nullable=False)
-    Nombre_Completo = Column(String(50), nullable=False)
+    Nombres = Column(String(50), nullable=False)
+    Apellidos = Column(String(50), nullable=False)
 
-#Base.metadata.create_all(engine)
-
+#Realizar consultas y transacciones con la bd
 Session = sessionmaker(bind=engine)
-session = Session()
+session = Session() 
 
 @app.route('/PaginaInicial')#para poder referenciar en los botones de retorno(atras)
 @app.route('/')
 def PaginaInicial():
-    
-    conexion_exitosa = conexion() # Conexión a la BD
-
     return render_template("pagina_inicial.html")
 
-@app.route('/InicioSesion')
+@app.route('/InicioSesion', methods=['GET', 'POST'])
 def InicioSesion():
+    if request.method == 'POST':
+        usuario = request.form.get('usuario')
+        password = request.form.get('password')
+        if usuario and password:#Verifica si se llenaron los campos
+            user = session.query(Usuarios).filter_by(Usuario=usuario).first()#Busca en la tabla Usuarios en el primer registro donde se encuentre el valor de usuario
+            if user != None and user.Password == password:#Verifica que tanto usuario existe y la contraseña coincidan 
+                return render_template("pagina_inicial.html")
+            else:
+                return render_template("inicio_sesion.html", error="Usuario o contraseña incorrectos.")
+        else:
+            return render_template("inicio_sesion.html", error="Por favor ingrese todos los campos.")
     return render_template("inicio_sesion.html")
+
 
 @app.route('/Registrarse',methods=['GET', 'POST'])
 def Registrarse():
     if request.method == 'POST':
         nombres = request.form.get('nombres')
+        apellidos = request.form.get('apellidos')
         usuario = request.form.get('usuario')
         password = request.form.get('password')
         rpassword = request.form.get('rpassword')
-        if nombres and usuario and password == rpassword:
+        if nombres and apellidos and usuario and password == rpassword:
+            # Verificar si el usuario ya existe
+            existe_usuario = session.query(Usuarios).filter_by(Usuario=usuario).first()
+            if existe_usuario != None:
+                return render_template("registrarse.html", error="El nombre de usuario ya está en uso.")
             try:
-                nuevo_usuario = Usuarios(Usuario=usuario, Password=password, Nombre_Completo=nombres)
+                nuevo_usuario = Usuarios(Nombres=nombres, Apellidos=apellidos, Usuario=usuario, Password=password)
                 session.add(nuevo_usuario)
                 session.commit()
                 return render_template("inicio_sesion.html")
             except Exception as e:
                 print(e)
-                return render_template("registrarse.html")
+                return render_template("registrarse.html", error="Error al registrar el usuario.")
         else:
-            return render_template("registrarse.html")
-
+            return render_template("registrarse.html", error="Por favor complete todos los campos y asegúrese de que las contraseñas coincidan.")
     return render_template("registrarse.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=6020)

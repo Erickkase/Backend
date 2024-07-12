@@ -23,15 +23,15 @@
                         </div>
                     </div>
                     <div class="inicio3">
-                        <br>
-                        <br>
+                        <br><br>
                         <p class="h1_pag2">Registrate</p>
                         <p class="h1_pag1">Comment Analyze</p>
-                        <br>
-                        <br>
+                        <br><br>
                         <form action="/Registrarse" method="POST" onsubmit="return validarFormulario()">
-                            <p class="text">Nombre Completo</p>
+                            <p class="text">Nombres</p>
                             <p class="espaciado" align="center"><input  class="textobox" name="nombres"  type="text" id="txt_nombres"></p>         
+                            <p class="text">Apellidos</p>
+                            <p class="espaciado" align="center"><input  class="textobox" name="apellidos"  type="text" id="txt_apellidos"></p> 
                             <p class="text">Usuario</p>
                             <p class="espaciado" align="center"><input  class="textobox" name="usuario"  type="text" id="txt_usuario"></p>
                             <p class="text">Contraseña</p>
@@ -46,6 +46,7 @@
                         <script type="text/javascript">
                             function validarFormulario() {
                                 let nombres = document.getElementById("txt_nombres").value;
+                                let apellidos = document.getElementById("txt_apellidos").value;
                                 let usuario = document.getElementById("txt_usuario").value;
                                 let password = document.getElementById("txt_password").value;
                                 let rpassword = document.getElementById("txt_rpassword").value;
@@ -59,6 +60,11 @@
                                     alert("Las contraseñas no coinciden.");
                                     return false;
                                 }
+
+                                if (password.length < 8){
+                                    alert("La contraseña debe tener minimo 8 caracteres");
+                                    return false;
+                                }
                     
                                 return true;
                             }
@@ -67,17 +73,11 @@
                       
                 </div>
                 <div class="boxsin12">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    <br><br><br><br>
                     <p align="center"><img src="{{url_for('static', filename='./Images/image_1.png')}}" class="imagen1"></p>
-
                     <hr>
                 </div>
         </div>
     </div>
-
 </body>
-
 </html>

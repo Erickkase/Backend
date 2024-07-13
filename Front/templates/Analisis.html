@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/analisis.css')}}">
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="box1">
+            <ul class="ul1">
+                <li class="header_imagen"><img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_banner"></li>
+                <li class="li2">Comment Analyze</li>
+                <li class="li1">Analizar</li>
+                <li class="li1">Reportes</li>
+                <li class="li1">Cuenta</li>
+                <li class="li1">Cerrar Sesión</li>
+            </ul>
+        </div>    
+        <div class="box2">    
+            <ul class="ul2">
+                <li>Imagen2</li>
+            </ul>
+        </div>   
+    </header>
+    <div>
+        <div class="container1">
+            <div class="box3">
+                <br>
+                <p class="p_titulos">Instrucciones de uso</p>
+                <p class="p_palabaras">
+                    Para utilizar la herramienta de análisis de comentarios de YouTube, simplemente sigue estos pasos: 
+                    Ingresa el enlace del video de YouTube que deseas analizar en el campo designado y haz clic en el
+                    botón "Analizar". La aplicación procesará los comentarios del video y te proporcionará un informe 
+                    detallado que incluye el análisis de sentimientos, tendencias relevantes y visualizaciones interactivas
+                    de los datos. Puedes acceder a tus análisis anteriores y generar informes completos en cualquier momento
+                    desde el menú de navegación.<br><br>
+                </p>
+                <p class="p_titulos">Analiza un nuevo video</p>
+                <form>
+                    <input class ="txt_analizar" name="analizar" type="text" placeholder="Ingresa un enlace de YouTube">
+                    <br><br>
+                    <p align="center"><input class="btn_analizar" name="btn_analizar" type="submit" value="Analizar"></p>
+                </form>
+                <br>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="box4">
+                <p class="">Análisis</p><br>
+                <p>Sentimientos Encontrados</p><br>
+                <p>
+                    Los sentimientos analizados en los comentarios de YouTube proporcionan una valiosa perspectiva sobre las opiniones y <br>
+                    emociones de los usuarios respecto al contenido. Este análisis permite a los creadores y empresas entender mejor cómo su <br> 
+                    audiencia percibe y reacciona ante sus videos, facilitando la mejora continua de su contenido y estrategias de comunicación<br>
+                </p>
+            </div>    
+            <br>
+            <div>
+            </div>
+            <br>
+        </div>
+        <div>
+            <p>Oportunidades de negocio</p><br>
+            <p>Sentimientos Encontrados</p><br>
+            <p>
+                La siguiente gráfica muestra las oportunidades de negocio detectadas, ofreciendo una visión clara de cómo las opiniones de<br>
+                la audiencia pueden orientar el desarrollo de productos y estrategias de mercado.<br> 
+            </p>
+            <div>
+            </div>
+            <br>
+        </div>
+        <div>
+            <p>Retención de Audiencia</p><br>
+            <p>
+                La retención de usuarios mide el porcentaje de usuarios que continúan usando el producto durante un período de tiempo<br>
+                específico. A menudo se utiliza para medir la adherencia de una aplicación, sitio web o plataforma.<br> 
+            </p>
+            <div>
+            </div>
+            <br>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,10 +1,6 @@
 #Importamos Flask
 from flask import Flask, render_template, request
-# Para leer la base de datos
-# Falta commentar para que sirve cada una
-# Instalar en tu entorno
-# Ademas Estar seguros de que tenemos el OBC Driver 17 para SQL server
-import pandas as pd
+#import pandas as pd
 import pyodbc
 #import pymssql
 from sqlalchemy import create_engine, Column, Integer, String 
@@ -87,6 +83,9 @@ def Registrarse():
             return render_template("registrarse.html", error="Por favor complete todos los campos y asegúrese de que las contraseñas coincidan.")
     return render_template("registrarse.html")
 
+@app.route('/Analisis')
+def Analisis():
+    return(render_template("Analisis.html"))
 
 if __name__ == '__main__':
     app.run(debug=True, port=6020)

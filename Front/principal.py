@@ -1,10 +1,6 @@
 #Importamos Flask
 from flask import Flask, render_template, request
-# Para leer la base de datos
-# Falta commentar para que sirve cada una
-# Instalar en tu entorno
-# Ademas Estar seguros de que tenemos el OBC Driver 17 para SQL server
-import pandas as pd
+#import pandas as pd
 import pyodbc
 #import pymssql
 from sqlalchemy import create_engine, Column, Integer, String 

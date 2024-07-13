@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
     <link rel="stylesheet" href="{{url_for('static', filename='./CSS/pagina_inicial.css')}}">
+
+    <!--Api Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Normalizar Estilos -->
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">
 </head>
 
 <body>
     <header>
-        <hr style color="EEF5F6">
         <nav class="nav_inicio">
             <img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_banner">
             <h1 class="h1_inicio">Comment Analyze</h1>
             <ul class="ul_inicio">
-                <li class="li_inicio"><a class="a_inicio" href="/InicioSesion"> Iniciar Sesion </a></li>
-                <li class="li_inicio"><a class="a_inicio" href="/Registrarse"> Registrarse </a></li>
+                <li class="li_inicio"><a class="a_inicio" href="/InicioSesion">Iniciar Sesión</a></li>
+                <li class="li_inicio"><a class="a_inicio" href="/Registrarse">Registrarse</a></li>
             </ul>
         </nav>
     </header>
+    
     <div>
         <div class="container">
             <div >        
-                <p align="center"><img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_inicio"></p>
+                <p><img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_inicio"></p>
             </div>   
         </div>
 
         <div class="container"> 
             <div class="boxsin">        
                 <p class="letras">
-                    <h1 class="h1_pag1">Comment Analyze</h1>
-                    <br>
+                    <h2 class="h2_pag1">Comment Analyze</h2>
                     Descubre oportunidades de negocio ocultas en los comentarios de Youtube.
                     <br>  
                     Utiliza nuestras herramientas avanzadas de análisis de datos para obtener insights valiosos
-                    <br><br><br>  
                 </p>
             </div>    
         </div>
         <div class="container1"> 
             <div class="boxsin12">    
-                <p align="center"><h1 class="h1_pag1">Ventajas</h1></p>
+                <p><h3 class="h3_pag1">Ventajas</h3></p>
             </div>
         </div>
         <div class="container1"> 
             <div class="boxsin1">        
-                    <p align="left">
+                    <p>
                         <h3 class="h1_pag2">Identificación de Tendencias</h3>
                         Permite a las empresas identificar tendencias emergentes y necesidades del mercado al analizar los comentarios de YouTube. Al comprender lo que los clientes valoran y critican, las empresas pueden ajustar sus productos y servicios para satisfacer mejor estas demandas.
                         <br>
@@ -64,41 +69,43 @@
         </div>
         <div class="container"> 
             <div class="boxsin">        
-                <p align="center"><h1 class="h1_pag1">Analíticas</h1></p>
+                <p><h1 class="h3_pag1">Analíticas</h1></p>
             </div>    
         </div>
         <div class="container"> 
             <div class="boxsin2">        
-                <p align="center"><img src="{{url_for('static', filename='./Images/imagen31.png')}}"  class="imagen_2"></p>
+                <p><img src="{{url_for('static', filename='./Images/imagen31.png')}}"  class="imagen_2"></p>
             </div>
             <div class="boxsin2">        
-                <p align="center"><img src="{{url_for('static', filename='./Images/imagen32.png')}}" class="imagen_2"></p>
+                <p><img src="{{url_for('static', filename='./Images/imagen32.png')}}" class="imagen_2"></p>
             </div>
             <div class="boxsin2">
-                <p align="center"><img src="{{url_for('static', filename='./Images/imagen33.png')}}" class="imagen_2"></p>
+                <p><img src="{{url_for('static', filename='./Images/imagen33.png')}}" class="imagen_2"></p>
             </div>  
         </div>
         <div class="container1"> 
             <div class="boxsin12">    
-                <p align="center"><h1 class="h1_pag1">Comencemos!</h1></p>
+                <p><h1 class="h3_pag1">Comencemos!</h1></p>
             </div>
         </div>
         <div class="container1"> 
-            <div class="boxsin1" align="center">
+            <div class="boxsin1">
                 <div class="boxsin4">
-                    <p align="center"><img src="{{url_for('static', filename='./Images/logo1_1.png')}}" class="imagen_3"> </p> Toma Decisiones
+                    <p><img src="{{url_for('static', filename='./Images/logo1_1.png')}}" class="imagen_3"></p>
+                    Toma Decisiones
                 </div>             
             </div>
-            <div class="boxsin1" align="center">
-                <div class="boxsin4" >
-                    <p align="center"><img src="{{url_for('static', filename='./Images/logo1_2.png')}}" class="imagen_3"> </p> Identifica Oportunidades
+            <div class="boxsin1">
+                <div class="boxsin4">
+                    <p><img src="{{url_for('static', filename='./Images/logo1_2.png')}}" class="imagen_3"></p>
+                    Identifica Oportunidades
                 </div>   
             </div>
-
+        </div>
         </div>
 
         <div class="container1"> 
-            <div class="boxsin1" align="center">
+            <div class="boxsin1">
                 <a href="/InicioSesion"><input class="boton2" type="button" name="boton_comenzar" value="  Comenzar  " ></a>
                 <br><br><br> 
             </div>

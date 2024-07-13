@@ -1,0 +1,101 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    box-shadow: 0 2px 10px  rgb(158, 158, 158);;
+}
+
+.ul1 {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.li1 {
+    margin-left: 20px;
+    padding: 22px;
+    text-align: center;
+    color: rgb(1, 1, 61);
+    font-size: 18px;
+}
+.li2 {
+    margin-left: 20px;
+    padding: 22px 22px 22px 0px;
+    text-align: center;
+    color: rgb(1, 1, 61);
+    font-size: 25px;
+}
+
+
+
+.ul2 {
+    display: flex;
+    align-items: center;
+    background-color: rgb(201, 19, 19);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header_imagen {
+    margin: 0 0px 0 10px;
+}
+
+
+.imagen_banner {
+    height: 70px;
+    width: 70px;
+}
+
+.container1 {
+    margin: 0;
+    padding: 10px 0px 0px 0px;
+}
+.container2 {
+    background-color: rgb(247, 255, 255);
+    margin: 0;
+    padding: 0;
+}
+
+
+.box3{
+    width: 1050px;
+    margin: 0 auto;
+
+}
+
+.p_titulos{
+    color: rgb(1, 1, 61);
+    font-size: 35px;
+}
+
+.p_palabaras{
+    font-size: 17px;
+}
+
+.txt_analizar{
+    background-color: rgb(202, 202, 202);
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn_analizar{
+    background-color: rgb(7, 6, 107);
+    width: 20%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}

@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Iniciar Seseión</title>
     <link rel="stylesheet" href="{{url_for('static', filename='./CSS/logins.css')}}">
 </head>
 
-<body>
+<body class="body">
     <div>
         <div class="container"> 
                 <div class="boxsin">        
@@ -33,9 +33,9 @@
                         <br>
                         <form action="/InicioSesion" method="post">
                             <p class="text">Usuario</p>
-                            <p class="espaciado" align="center"><input  class="textobox"  type="text" name ="usuario"></p>
+                            <p class="espaciado" align="center"><input  class="textobox"  type="text" name ="usuario" placeholder="Usuario..."></p>
                             <p class="text">Contraseña</p>
-                            <p class="espaciado" align="center"><input class="textobox" type="text" name="password"></p>
+                            <p class="espaciado" align="center"><input class="textobox" type="password" name="password" placeholder="Contraseña..."></p>
                             <br><br><br>
                             <hr>   
                             <br>

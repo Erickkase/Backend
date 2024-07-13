@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Registrarse</title>
     <link rel="stylesheet" href="{{url_for('static', filename='./CSS/logins.css')}}">
 </head>
 
-<body>
+<body class="body">
     <div>
         <div class="container"> 
                 <div class="boxsin">        
@@ -29,15 +29,15 @@
                         <br><br>
                         <form action="/Registrarse" method="POST" onsubmit="return validarFormulario()">
                             <p class="text">Nombres</p>
-                            <p class="espaciado" align="center"><input  class="textobox" name="nombres"  type="text" id="txt_nombres"></p>         
+                            <p class="espaciado" align="center"><input  class="textobox" name="nombres"  type="text" id="txt_nombres" placeholder="Nombres..."></p>         
                             <p class="text">Apellidos</p>
-                            <p class="espaciado" align="center"><input  class="textobox" name="apellidos"  type="text" id="txt_apellidos"></p> 
+                            <p class="espaciado" align="center"><input  class="textobox" name="apellidos"  type="text" id="txt_apellidos" placeholder="Apellidos..."></p> 
                             <p class="text">Usuario</p>
-                            <p class="espaciado" align="center"><input  class="textobox" name="usuario"  type="text" id="txt_usuario"></p>
+                            <p class="espaciado" align="center"><input  class="textobox" name="usuario"  type="text" id="txt_usuario" placeholder="Usuario..."></p>
                             <p class="text">Contraseña</p>
-                            <p class="espaciado" align="center"><input class="textobox"  name="password" type="text" id="txt_password"></p>
+                            <p class="espaciado" align="center"><input class="textobox"  name="password" type="password" id="txt_password" placeholder="Contraseña..."></p>
                             <p class="text">Repetir Contraseña</p>
-                            <p class="espaciado" align="center"><input  class="textobox" name="rpassword" type="password" id="txt_rpassword"></p>
+                            <p class="espaciado" align="center"><input  class="textobox" name="rpassword" type="password" id="txt_rpassword" placeholder="Contraseña..."></p>
                             <br>
                             <hr>   
                             <br>

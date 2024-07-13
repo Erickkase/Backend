@@ -83,6 +83,9 @@ def Registrarse():
             return render_template("registrarse.html", error="Por favor complete todos los campos y asegúrese de que las contraseñas coincidan.")
     return render_template("registrarse.html")
 
+@app.route('/Analisis')
+def Analisis():
+    return(render_template("Analisis.html"))
 
 if __name__ == '__main__':
     app.run(debug=True, port=6020)

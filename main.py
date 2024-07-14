@@ -4,22 +4,8 @@ from googleapiclient.discovery import build
 from pydantic import BaseModel
 from typing import List
 from urllib.parse import urlparse, parse_qs
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
-origins = [
-    "http://localhost:8080",
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 YOUTUBE_API_KEY = "AIzaSyBaMHRgO6vINzR9QuRr2CG0dhILlevjhGU"
 
 # Función para obtener el ID del canal a partir del handle
@@ -63,13 +49,13 @@ def get_video_id_from_url(url: str) -> str:
         raise HTTPException(status_code=400, detail="Invalid YouTube URL")
 
 # Función para obtener los comentarios más likeados de un video
-def get_top_comments(video_id: str):
+def get_top_comments(video_id: str, num_comments: int = 5):
     youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
     
     request = youtube.commentThreads().list(
         part="snippet",
         videoId=video_id,
-        maxResults=5,
+        maxResults=num_comments,  # Obtener el número específico de comentarios
         order="relevance"
     )
     response = request.execute()
@@ -80,10 +66,13 @@ def get_top_comments(video_id: str):
         comments.append({
             "author": top_comment["authorDisplayName"],
             "text": top_comment["textDisplay"],
-            "likes": top_comment["likeCount"]
+            "likes": top_comment["likeCount"],
+            "video_url": f"https://www.youtube.com/watch?v={video_id}"  # Incluir la URL del video
         })
+
+    comments_sorted = sorted(comments, key=lambda x: x["likes"], reverse=True)[:num_comments]
     
-    return comments
+    return comments_sorted
 
 @app.get("/latest_videos/")
 def latest_videos(handle: str):
@@ -92,13 +81,13 @@ def latest_videos(handle: str):
     return {"videos": videos}
 
 @app.get("/top_comments/")
-def top_comments(video_url: str):
+def top_comments(video_url: str, num_comments: int = 5):
     video_id = get_video_id_from_url(video_url)
-    comments = get_top_comments(video_id)
+    comments = get_top_comments(video_id, num_comments)
     return {"comments": comments}
 
 @app.get("/top_comments_latest_videos/")
-def top_comments_latest_videos(handle: str):
+def top_comments_latest_videos(handle: str, num_comments_per_video: int = 5):
     # Obtener el ID del canal
     channel_id = get_channel_id_by_handle(handle)
     
@@ -109,10 +98,10 @@ def top_comments_latest_videos(handle: str):
     top_comments_all_videos = []
     for video in videos:
         video_id = get_video_id_from_url(video["url"])
-        top_comments = get_top_comments(video_id)
+        top_comments = get_top_comments(video_id, num_comments_per_video)
         top_comments_all_videos.extend(top_comments)
     
     # Ordenar los comentarios por likes de manera descendente
-    top_comments_sorted = sorted(top_comments_all_videos, key=lambda x: x["likes"], reverse=True)[:25]
+    top_comments_sorted = sorted(top_comments_all_videos, key=lambda x: x["likes"], reverse=True)[:len(videos) * num_comments_per_video]
     
     return {"top_comments": top_comments_sorted}

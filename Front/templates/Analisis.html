@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <title>Análisis</title>
     <link rel="stylesheet" href="{{url_for('static', filename='./CSS/analisis.css')}}">
+    <!--Api Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Normalizar Estilos -->
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">    
 </head>
 
 <body class="body">
@@ -18,7 +25,7 @@
                 <li class="li1">Cuenta</li>
                 <li class="li1">Cerrar Sesión</li>
             </ul>
-        </div>    
+        </div>
         <div class="box2">    
             <ul class="ul2">
                 <li>Imagen2</li>
@@ -28,7 +35,6 @@
     <div>
         <div class="container1">
             <div class="box3">
-                <br>
                 <p class="p_titulos">Instrucciones de uso</p>
                 <p class="p_palabaras">
                     Para utilizar la herramienta de análisis de comentarios de YouTube, simplemente sigue estos pasos: 
@@ -41,43 +47,34 @@
                 <p class="p_titulos">Analiza un nuevo video</p>
                 <form>
                     <input class ="txt_analizar" name="analizar" type="text" placeholder="Ingresa un enlace de YouTube">
-                    <br><br>
-                    <p align="center"><input class="btn_analizar" name="btn_analizar" type="submit" value="Analizar"></p>
+                    <input class="btn_analizar" name="btn_analizar" type="submit" value="Analizar">
                 </form>
                 <br>
             </div>
         </div>
         <div class="container2">
-            <div class="box4">
-                <p class="">Análisis</p><br>
-                <p>Sentimientos Encontrados</p><br>
+            <div class="box3">
+                <h2 class="h2">Análisis</h2>
+                <h3 class="h3">Sentimientos Encontrados</h3>
                 <p>
-                    Los sentimientos analizados en los comentarios de YouTube proporcionan una valiosa perspectiva sobre las opiniones y <br>
-                    emociones de los usuarios respecto al contenido. Este análisis permite a los creadores y empresas entender mejor cómo su <br> 
-                    audiencia percibe y reacciona ante sus videos, facilitando la mejora continua de su contenido y estrategias de comunicación<br>
-                </p>
+                    Los sentimientos analizados en los comentarios de YouTube proporcionan una valiosa perspectiva sobre las opiniones y emociones de los usuarios respecto al contenido. Este análisis permite a los creadores y empresas entender mejor cómo su audiencia percibe y reacciona ante sus videos, facilitando la mejora continua de su contenido y estrategias de comunicación</p>
             </div>    
-            <br>
             <div>
             </div>
-            <br>
         </div>
-        <div>
-            <p>Oportunidades de negocio</p><br>
-            <p>Sentimientos Encontrados</p><br>
+        <div class="box3">
+            <h3 class="h3">Oportunidades de negocio</h3>
+            <h3 class="h3">Sentimientos Encontrados</h3>
             <p>
-                La siguiente gráfica muestra las oportunidades de negocio detectadas, ofreciendo una visión clara de cómo las opiniones de<br>
-                la audiencia pueden orientar el desarrollo de productos y estrategias de mercado.<br> 
+                La siguiente gráfica muestra las oportunidades de negocio detectadas, ofreciendo una visión clara de cómo las opiniones de la audiencia pueden orientar el desarrollo de productos y estrategias de mercado.
             </p>
             <div>
             </div>
-            <br>
         </div>
-        <div>
-            <p>Retención de Audiencia</p><br>
+        <div class="box3">
+            <h3 class="h3">Retención de Audiencia</h3>
             <p>
-                La retención de usuarios mide el porcentaje de usuarios que continúan usando el producto durante un período de tiempo<br>
-                específico. A menudo se utiliza para medir la adherencia de una aplicación, sitio web o plataforma.<br> 
+                La retención de usuarios mide el porcentaje de usuarios que continúan usando el producto durante un período de tiempo específico. A menudo se utiliza para medir la adherencia de una aplicación, sitio web o plataforma.
             </p>
             <div>
             </div>
@@ -85,5 +82,4 @@
         </div>
     </div>
 </body>
-
 </html>

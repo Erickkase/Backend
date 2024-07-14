@@ -3,8 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar Seseión</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="{{url_for('static', filename='./CSS/logins.css')}}">
+
+    <!--Api Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Normalizar Estilos -->
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">
 </head>
 
 <body class="body">
@@ -16,28 +24,19 @@
                             <a href="/PaginaInicial"><input  class="boton1" type="button" name="boton_regresar" value = " Atras "></a>
                         </div>
                         <div class="inicio1_2">
-                            <!--
-                            <img src="../assets/images/image.png" class="imagen_banner">
-                            -->
                             <img src="{{url_for('static', filename='./Images/image.png')}}" class="imagen_banner">
-                        </div>
-                        <div class="inicio1_3">
                             <p class="text1">Comment Analyze</p>
                         </div>
                     </div>
                     <div class="inicio3">
-                        <br><br><br>
                         <p class="h1_pag2">Inicia Sesión</p>
                         <p class="h1_pag1">Comment Analyze</p>
-                        <br>
-                        <br>
-                        <form action="/InicioSesion" method="post">
+                        <form class="formulario" action="/InicioSesion" method="post">
                             <p class="text">Usuario</p>
-                            <p class="espaciado" align="center"><input  class="textobox"  type="text" name ="usuario" placeholder="Usuario..."></p>
+                            <input  class="textobox"  type="text" name ="usuario" placeholder="Usuario...">
                             <p class="text">Contraseña</p>
-                            <p class="espaciado" align="center"><input class="textobox" type="password" name="password" placeholder="Contraseña..."></p>
-                            <br><br><br>
-                            <hr>   
+                            <input class="textobox" type="password" name="password" placeholder="Contraseña...">
+  
                             <br>
                             <input class="boton2" type="submit" name="boton_continuar" value=" Continua ">
                         </form>
@@ -47,13 +46,9 @@
                       
                 </div>
                 <div class="boxsin12">
-                    <br><br><br><br>
-                    <p align="center"><img src="{{url_for('static', filename='./Images/image_1.png')}}" class="imagen1"></p>
-                    <hr>
+                    <p><img src="{{url_for('static', filename='./Images/image_1.png')}}" class="imagen1"></p>
                 </div>
         </div>
     </div>
-
 </body>
-
 </html>

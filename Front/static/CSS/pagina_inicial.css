@@ -13,10 +13,10 @@ body{
 
 .imagen_banner{
     height: 80px;
-    width: 80px;
     border-radius: 20px;
     padding-right: 10px;
     padding-left: 20px;
+    object-fit: scale-down;
 }
 
 .imagen_2{

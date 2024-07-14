@@ -13,6 +13,8 @@ app = Flask(__name__)
 
 # Configuración de la base de datos
 conexion_db = 'mssql+pyodbc://BD_CommentAnalize:12345678@DESKTOP-MPK3557/Comment_Analize?driver=ODBC+Driver+17+for+SQL+Server'
+#conexion Duvard:
+#conexion_db = 'mssql+pyodbc://sa:sql_123@DESKTOP-ITKPV5E\SQLEXPRESS/Comment_Analize?driver=ODBC+Driver+17+for+SQL+Server'
 
 if conexion_db:
     print("Conexión exitosa con la base de datos")

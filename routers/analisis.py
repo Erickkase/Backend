@@ -2,11 +2,13 @@ from fastapi import APIRouter, HTTPException
 from db.conexion import db_client
 from pysentimiento import create_analyzer
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
 
 client = OpenAI(
-    api_key="sk-proj-KEJWKNv4pev3t6FX6pOFT3BlbkFJB3O29amm5owyEBZ2KB93"
+    api_key=os.getenv("OPENAI_API_KEY")
 )
-
 
 
 analyzer = create_analyzer(task="sentiment", lang="es")

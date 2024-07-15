@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from googleapiclient.discovery import build
 from urllib.parse import urlparse, parse_qs
+from db.conexion import db_client
 
 YOUTUBE_API_KEY = "AIzaSyBaMHRgO6vINzR9QuRr2CG0dhILlevjhGU"
 
@@ -12,37 +13,69 @@ router=APIRouter(prefix="/comments",tags=["comments"],responses={404:{"message":
 
 #Solicitud para ultimos videos
 @router.get("/latest_videos/")
-def latest_videos(handle: str):
+async def latest_videos(usuario: str, handle: str):
     channel_id = get_channel_id_by_handle(handle)
     videos = get_latest_videos(channel_id)
+
+    busqueda = {
+        "solicitud": "latest_videos",
+        "busqueda": handle,
+        "videos": videos
+    }
+
+    db_client.usuarios.update_one(
+        {"usuario": usuario},
+        {"$push": {"busquedas": busqueda}, "$setOnInsert": {"usuario": usuario}},
+        upsert=True 
+    )
     return {"videos": videos}
 
-#Solicitud para los comentarios mas likeados
+# Solicitud para los comentarios más likeados
 @router.get("/top_comments/")
-def top_comments(video_url: str, num_comments: int = 5):
+async def top_comments(usuario: str, video_url: str, num_comments: int = 5):
     video_id = get_video_id_from_url(video_url)
     comments = get_top_comments(video_id, num_comments)
+    busqueda = {
+        "solicitud": "top_comments",
+        "busqueda": video_url,
+        "numero de comentarios": num_comments,
+        "comentarios": comments
+    }
+
+    db_client.usuarios.update_one(
+        {"usuario": usuario},
+        {"$push": {"busquedas": busqueda}, "$setOnInsert": {"usuario": usuario}},
+        upsert=True 
+    )
     return {"comments": comments}
 
 #Solicitud para los comentarios mas likeados de los ultimos videos
 @router.get("/top_comments_latest_videos/")
-def top_comments_latest_videos(handle: str, num_comments_per_video: int = 5):
-    # Obtener el ID del canal
+async def top_comments_latest_videos(usuario: str, handle: str, num_comments_per_video: int = 5):
     channel_id = get_channel_id_by_handle(handle)
-    
-    # Obtener los últimos 5 videos del canal
     videos = get_latest_videos(channel_id)
     
-    # Obtener los comentarios más populares de cada video
     top_comments_all_videos = []
     for video in videos:
         video_id = get_video_id_from_url(video["url"])
         top_comments = get_top_comments(video_id, num_comments_per_video)
         top_comments_all_videos.extend(top_comments)
     
-    # Ordenar los comentarios por likes de manera descendente
     top_comments_sorted = sorted(top_comments_all_videos, key=lambda x: x["likes"], reverse=True)[:len(videos) * num_comments_per_video]
     
+    busqueda = {
+        "solicitud": "top_comments_latest_videos",
+        "busqueda": handle,
+        "numero de comentarios por video": num_comments_per_video,
+        "comentarios": top_comments_sorted
+    }
+
+    db_client.usuarios.update_one(
+        {"usuario": usuario},
+        {"$push": {"busquedas": busqueda}, "$setOnInsert": {"usuario": usuario}},
+        upsert=True 
+    )
+
     return {"top_comments": top_comments_sorted}
 
 

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import comentarios
+from routers import comentarios,analisis
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -19,6 +19,7 @@ app.add_middleware(
 
 #Routers
 app.include_router(comentarios.router)
+app.include_router(analisis.router)
 
 @app.get("/")
 async def root():

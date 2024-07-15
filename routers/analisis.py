@@ -5,9 +5,11 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 
 client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
+    api_key="sk-proj-w8m8wA46WwCM1zlxGe0lT3BlbkFJ0bvgxlNB0plgIK8YulJw",
 )
 
 
@@ -45,7 +47,7 @@ async def pregunta(usuario: str, pregunta: str):
         response = client.chat.completions.create(
             model="gpt-3.5-turbo", 
             messages=[
-                {"role": "user", "content": f"En Base a esto Comentarios: {context} responde la Pregunta: {pregunta}"},
+                {"role": "user", "content": f"En Base a estos Comentarios: {context} responde la Pregunta: {pregunta} "},
             ],
         )
         respuesta_openai = response.choices[0].message.content

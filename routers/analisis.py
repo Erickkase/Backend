@@ -9,7 +9,7 @@ load_dotenv()
 
 
 client = OpenAI(
-    api_key="sk-proj-w8m8wA46WwCM1zlxGe0lT3BlbkFJ0bvgxlNB0plgIK8YulJw",
+    api_key="OPENAI_API_KEY",
 )
 
 

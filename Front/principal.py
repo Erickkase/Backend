@@ -52,7 +52,7 @@ def InicioSesion():
         if usuario and password:#Verifica si se llenaron los campos
             user = session.query(Usuarios).filter_by(Usuario=usuario).first()#Busca en la tabla Usuarios en el primer registro donde se encuentre el valor de usuario
             if user != None and user.Password == password:#Verifica que tanto usuario existe y la contraseña coincidan 
-                return render_template("pagina_inicial.html")
+                return render_template("Analisis.html")
             else:
                 return render_template("inicio_sesion.html", error="Usuario o contraseña incorrectos.")
         else:

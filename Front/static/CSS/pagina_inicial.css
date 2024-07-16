@@ -20,15 +20,20 @@ body{
 }
 
 .imagen_2{
-    width: 400px;
-    margin: 10px;
+    width: 500px;
+    height: 350px;
+
+}
+.imagen_4{
+    width: 300px;
+    height: 210px;
+
 }
 
 .imagen_3{
     width: 100px;
     border-radius: 20px;
 }
-
 
 .nav_inicio{
     background-color: rgb(1, 1, 61);
@@ -109,7 +114,7 @@ a:hover{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .container {
-    background-color: rgb(210, 214, 214);
+    background-color: rgb(238, 238, 238);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,16 +126,17 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 75px;
     flex-wrap: wrap;
 }
 .boxsin1 {
     width: 500px; 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    margin: 10px;
+    padding:0;
+    margin: 0;
+
 }
 .boxsin4 {
     align-items: center;
@@ -140,7 +146,7 @@ a:hover{
 
 .boxsin2 {
     padding: 20px;
-    background-color: #f3ebeb;
+    background-color: rgb(238, 238, 238);
     width: 350px;
     margin: 0px 10px 50px;
 }

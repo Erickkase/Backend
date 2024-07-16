@@ -1,39 +1,35 @@
 .body{
     margin: 0;
     font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
     font-style: normal;
     font-size: 18px;
     overflow-y: hidden;
 }
 
-.container {
+.container{
     width: 100%;
+    height: 618px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    max-width: 2000px;
+    
 }
 
 .boxsin {
     width: 50%;
-    text-align: center;
-    height: 100vh;
+    display: inline-block;
+
 }
 
 .boxsin12{
     background-color:  rgb(1, 1, 61);
     width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    display: inline-block;
 }
 .inicio {
     width: 100%;
     display: flex;
     align-items: center;
-    height: 100px;
+    border-bottom: 2px solid  rgb(1, 1, 61);
 }
 
 img{
@@ -44,8 +40,8 @@ img{
     background-color: rgb(1, 1, 61);
     border-bottom: rgb(1, 1, 61);
     color: #ffffff;
-    width: 75px;
-    height: 50px;
+    width: 65px;
+    height: 40px;
     border-radius: 10px;
 }
 .boton1:hover{
@@ -58,7 +54,9 @@ img{
     border-radius: 20px;
     object-fit: scale-down;
 }
-
+.imagen1{
+    padding:15% 12% 0% 12%;
+}
 .inicio1_1{
     width: 20%;
     display: flex;
@@ -83,11 +81,10 @@ img{
 }
 
 .inicio3 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 12%;
+}   
 
 .h1_pag1{
     color: rgb(1, 1, 61);
@@ -97,14 +94,16 @@ img{
     
 }
 .h1_pag2{
+    text-align: left;
+    padding-left: 105px ;
     color: rgb(0, 0, 0);
     font-size: 30px;
-    margin: 5px;
-    text-align: center;
 }
 
 .text {
-    margin: 5px;
+    font-size: 18px;
+    margin: 0;
+    padding: 8px 8px 8px 0px;
     text-align: left;
 }
 
@@ -116,9 +115,9 @@ img{
 .boton2{
     background-color: rgb(1, 1, 61);
     color: #ffffff;
-    width: 200px;
-    height: 50px;
-    border-radius: 15px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
 
 }
 .boton2:hover{
@@ -128,13 +127,21 @@ img{
 .textobox{
     background-color: rgb(224, 224, 241);
     color: #000000;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
-    padding: 10px;
-    width: 400px;
+    width: 80%;
+    height: 32px;
+    font-size: 14px;
 }
 
 .formulario{
     margin: 50px;
     width: 500px;
+}
+.txt_error{
+    color: red;
+    font-size: 15px;
+}
+.pading_boton{
+    padding-left: 105px;
 }

@@ -72,7 +72,11 @@ def Registrarse():
             # Verificar si el usuario ya existe
             existe_usuario = session.query(Usuarios).filter_by(Usuario=usuario).first()
             if existe_usuario != None:
-                return render_template("registrarse.html", error="El nombre de usuario ya está en uso.")
+                return render_template("registrarse.html", error="Ese nombre de Usuario ya esta en uso")
+            elif password != rpassword:
+                return render_template("registrarse.html", error="Las contraseñas no coinciden")
+            elif len(password)<8:
+                return render_template("registrarse.html", error="La contraseña debe tener minimo 8 caracteres")
             try:
                 nuevo_usuario = Usuarios(Nombres=nombres, Apellidos=apellidos, Usuario=usuario, Password=password)
                 session.add(nuevo_usuario)
@@ -82,7 +86,7 @@ def Registrarse():
                 print(e)
                 return render_template("registrarse.html", error="Error al registrar el usuario.")
         else:
-            return render_template("registrarse.html", error="Por favor complete todos los campos y asegúrese de que las contraseñas coincidan.")
+            return render_template("registrarse.html", error="Por favor complete todos los campos")
     return render_template("registrarse.html")
 
 @app.route('/Analisis')

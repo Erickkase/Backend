@@ -25,22 +25,22 @@
                         </div>
                         <div class="inicio1_2">
                             <img src="{{url_for('static', filename='./Images/image.png')}}" class="imagen_banner">
-                            <p class="text1">Comment Analyze</p>
+                            <p class="text1"><b>Comment Analyze</b></p>
                         </div>
                     </div>
                     <div class="inicio3">
-                        <p class="h1_pag2">Inicia Sesión</p>
-                        <p class="h1_pag1">Comment Analyze</p>
+                        <p class="h1_pag1"><b>Inicia Sesión</b></p>
                         <form class="formulario" action="/InicioSesion" method="post">
                             <p class="text">Usuario</p>
                             <input  class="textobox"  type="text" name ="usuario" placeholder="Usuario...">
                             <p class="text">Contraseña</p>
                             <input class="textobox" type="password" name="password" placeholder="Contraseña...">
-  
-                            <br>
+                            <br><br>
+                            <label class="text_error">{{error}}</label>
+                            <br><br>
                             <input class="boton2" type="submit" name="boton_continuar" value=" Continua ">
                         </form>
-                        <br><br><br>
+                        <br><br>
                         <p class="text2">¿No tienes una cuenta? <a href="/Registrarse">Registrate</a></p>    
                     </div>
                       

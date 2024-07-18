@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/reportes.css')}}">
+    <!--Api Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Normalizar Estilos -->
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Configurar el gráfico de barras
+        window.onload = function(){
+            var ctxBar = document.getElementById('graficoBarras').getContext('2d');
+            var nombres = ["a","b","c","f","cas",]
+            var valores = [1,2,3,43,65]
+            var myBarChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: nombres,
+                    datasets: [{
+                        label: 'Tipo de registro',
+                        data: valores,
+                        backgroundColor: [
+                            'rgb(1, 1, 61)','#1f104f','#241178','#2510a3','#1e0bd0','#0000ff'
+                        ],
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    scales: {
+                        x:{
+                            display: false
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                    }
+                }
+            });
+            var ctxBar = document.getElementById('graficoBarras2').getContext('2d');
+            var nombres = ["c","d","e",]
+            var valores = [8,50,44]
+            var myBarChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: nombres,
+                    datasets: [{
+                        label: 'Tipo de registro',
+                        data: valores,
+                        backgroundColor: [
+                            'rgb(1, 1, 61)','#1f104f','#241178','#2510a3','#1e0bd0','#0000ff'
+                        ],
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    scales: {
+                        x:{
+                            display: false
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                    }
+                }
+            });
+            var ctxBar = document.getElementById('graficopie1').getContext('2d');
+            var nombres = ["c","d","e","f","h","i"]
+            var valores = [8,20,44,2,32,3]
+            var myBarChart = new Chart(ctxBar, {
+                type: 'doughnut',
+                data: {
+                    labels: nombres,
+                    datasets: [{
+                        label: 'Tipo de registro',
+                        data: valores,
+                        backgroundColor: [
+                            'rgb(1, 1, 61)','#1f104f','#241178','#2510a3','#1e0bd0','#0000ff'
+                        ],
+                    }]
+                },
+                options: {
+                    scales: {
+                        x:{
+                            display: false
+                        },
+                        y: {
+                            beginAtZero: true,
+                            display: false
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                    },
+                    cutout: '60%' 
+                }
+            });
+            var ctxBar = document.getElementById('graficobarras3').getContext('2d');
+            var nombres = ["c","d","e","f","h","i"]
+            var valores = [8,20,44,2,32,3]
+            var myBarChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: nombres,
+                    datasets: [{
+                        label: 'Tipo de registro',
+                        data: valores,
+                        backgroundColor: [
+                            'rgb(1, 1, 61)','#1f104f','#241178','#2510a3','#1e0bd0','#0000ff'
+                        ],
+                    }]
+                },
+                options: {
+                    scales: {
+                        x:{
+                            display: false
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                    }
+                }
+            });
+        }
+    </script>    
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="box1">
+            <ul class="ul1">
+                <li class="header_imagen"><img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_banner"></li>
+                <li class="li2"><b>Comment Analyze</b></li>
+                <li class="li1"><a href="/Analisis" class="a_estilo">Analizar</a></li>
+                <li class="li1"><a href="/Reportes" class="a_estilo"><b>Reportes</b></a></li>
+                <!---<li class="li1"><a href="" class="a_estilo">Cuenta</a></li>
+                <li class="li1"><a href="/PaginaInicial" class="a_estilo">Cerrar Sesión</a></li>-->
+            </ul>
+        </div>
+        <div class="box2">   
+            <ul class="ul2">
+                <li class="li1"><a href="/PaginaInicial" class="a_estilo">Cerrar Sesión</a></li>
+            </ul>
+        </div>   
+    </header>
+    <div>
+        <div class="container1">
+            <div class="box3">
+                <p class="p_titulos"><b>Reportes</b></p>
+                <br>
+            </div>
+        </div>
+        <hr class="box3">
+        <div class="container2">
+            <div class="box3">
+                <h2 class="h2"><b>Temas principales</b></h2>
+                <p class="p1">Temas más mencionados en los comentarios.</p>
+                
+                <div class="subcontainer1" >
+                    <div class="tabla">
+                        Grafico 1
+                        <canvas id="graficoBarras"></canvas>
+                    </div>
+                    <div div class="tabla1">
+                        Grafico 2
+                        <canvas id="graficoBarras2"></canvas>
+                    </div>
+                </div>
+            </div>     
+        </div>
+        <br><br><hr class="box3"> 
+        <div class="box3">
+            <h3 class="h3"><b>Sentimientos de los Comentarios</b></h3>
+            <p class="p3">
+                Visión detallada de los sentimientos expresados en los comentarios
+            </p>
+            <div class="subcontainer2">
+                <canvas id="graficopie1"></canvas>
+            </div>
+        </div>
+        <br><br><hr class="box3"> 
+        <div class="box3">
+            <h3 class="h4"><b>Sentimientos Encontrados</b></h3>
+            <div class="subcontainer1">
+                <canvas id="graficobarras3"></canvas>
+            </div>
+            <br>
+        </div>
+    </div>
+</body>
+</html>

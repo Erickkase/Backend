@@ -93,5 +93,10 @@ def Registrarse():
 def Analisis():
     return(render_template("Analisis.html"))
 
+@app.route('/Reportes')
+def Reportes():
+    return(render_template("Reportes.html"))
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=6020)

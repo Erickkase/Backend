@@ -20,15 +20,15 @@
             <ul class="ul1">
                 <li class="header_imagen"><img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_banner"></li>
                 <li class="li2"><b>Comment Analyze</b></li>
-                <li class="li1"><a href="" class="a_estilo">Analizar</a></li>
-                <li class="li1"><a href="" class="a_estilo">Reportes</a></li>
-                <li class="li1"><a href="" class="a_estilo">Cuenta</a></li>
-                <li class="li1"><a href="" class="a_estilo">Cerrar Sesión</a></li>
+                <li class="li1"><a href="/Analisis" class="a_estilo"><b>Analizar</b></a></li>
+                <li class="li1"><a href="/Reportes" class="a_estilo">Reportes</a></li>
+                <!--<li class="li1"><a href="" class="a_estilo">Cuenta</a></li>
+                <li class="li1"><a href="/PaginaInicial" class="a_estilo">Cerrar Sesión</a></li>-->
             </ul>
         </div>
         <div class="box2">    
             <ul class="ul2">
-                <li>Imagen2</li>
+                <li class="li1"><a href="/PaginaInicial" class="a_estilo">Cerrar Sesión</a></li>
             </ul>
         </div>   
     </header>
@@ -52,7 +52,7 @@
                 <br>
             </div>
         </div>
-        <div class="container2">
+        <!--<div class="container2">
             <div class="box3">
                 <h2 class="h2">Análisis</h2>
                 <h3 class="h3">Sentimientos Encontrados</h3>
@@ -61,22 +61,68 @@
             </div>    
             <div>
             </div>
-        </div>
+        </div>-->
+        <br><br><br><hr class="box3">
         <div class="box3">
-            <h3 class="h3">Oportunidades de negocio</h3>
-            <h3 class="h3">Sentimientos Encontrados</h3>
-            <p>
-                La siguiente gráfica muestra las oportunidades de negocio detectadas, ofreciendo una visión clara de cómo las opiniones de la audiencia pueden orientar el desarrollo de productos y estrategias de mercado.
-            </p>
-            <div>
+            <h3 class="h3"><b>Oportunidades de negocio</b></h3>
+            <div class="subbox1">
+                <table class="tabla1">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Oportunidad de Negocio</th>
+                            <th>Nivel de Aceptación</th>
+                            <th>Usuarios que mencionaron</th>
+                            <th>Imagen Tabla</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Oportunidad de Negocio1</td>
+                            <td>Num</td>
+                            <td>Num</td>
+                            <td>Imagen1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Oportunidad de Negocio2</td>
+                            <td>Num</td>
+                            <td>Num</td>
+                            <td>Imagen2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Oportunidad de Negocio3</td>
+                            <td>Num</td>
+                            <td>Num</td>
+                            <td>Imagen3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Oportunidad de Negocio4</td>
+                            <td>Num</td>
+                            <td>Num</td>
+                            <td>Imagen4</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Oportunidad de Negocio5</td>
+                            <td>Num</td>
+                            <td>Num</td>
+                            <td>Imagen5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </table>
             </div>
         </div>
+        <br><br><br><hr class="box3">
         <div class="box3">
-            <h3 class="h3">Retención de Audiencia</h3>
-            <p>
-                La retención de usuarios mide el porcentaje de usuarios que continúan usando el producto durante un período de tiempo específico. A menudo se utiliza para medir la adherencia de una aplicación, sitio web o plataforma.
-            </p>
-            <div>
+            <h3 class="h3"><b>Análisis</b></h3>
+            <div class="subbox2">
+                <label>Aqui va la respuesta de la IA.......</label>
+                <br><br><br><br><br><br><br><br><br>
             </div>
             <br>
         </div>

@@ -68,7 +68,6 @@
 .ul2 {
     display: flex;
     align-items: center;
-    background-color: rgb(201, 19, 19);
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -105,6 +104,20 @@
     justify-content: center;
     align-items: center;
 }
+.subbox1{
+    width: 100%;
+    margin: 0 auto;
+
+    border-radius: 10px;
+}
+
+.subbox2{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color:  rgb(238, 238, 238);
+}
+
 
 .p_titulos{
     color: rgb(1, 1, 61);
@@ -157,3 +170,19 @@ form{
     flex-direction: column;
     align-items:center ;
 }
+.tabla1{
+    padding: 10px;
+    margin: 0;
+    align-items: center;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td {
+    padding: 15px 17.7px; 
+}
+tr:nth-child(odd) {
+    background-color:  rgb(238, 238, 238);
+}
+tr:hover {
+    background-color: #c0c0c0;
+}   

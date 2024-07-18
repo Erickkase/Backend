@@ -1,30 +1,30 @@
-#Importamos Flask
-from flask import Flask, render_template, request
-#import pandas as pd
+# Importamos Flask
+from flask import Flask, render_template, request, session
+# import pandas as pd
 import pyodbc
-#import pymssql
+# import pymssql
 from sqlalchemy import create_engine, Column, Integer, String 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
-#from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.ext.declarative import declarative_base
 # from sqlalchemy import Column, Integer, String, Boolean
 
 app = Flask(__name__)
 
 # Configuración de la base de datos
 conexion_db = 'mssql+pyodbc://BD_CommentAnalize:12345678@DESKTOP-MPK3557/Comment_Analize?driver=ODBC+Driver+17+for+SQL+Server'
-#conexion Duvard:
-#conexion_db = 'mssql+pyodbc://sa:sql_123@DESKTOP-ITKPV5E\SQLEXPRESS/Comment_Analize?driver=ODBC+Driver+17+for+SQL+Server'
+# conexión Duvard:
+# conexion_db = 'mssql+pyodbc://sa:sql_123@DESKTOP-ITKPV5E\SQLEXPRESS/Comment_Analize?driver=ODBC+Driver+17+for+SQL+Server'
 
 if conexion_db:
     print("Conexión exitosa con la base de datos")
 else:
-    print("No se pudo realizar la conexion con la base de datos")  
+    print("No se pudo realizar la conexión con la base de datos")  
 
-# Crear motor(comunicación) de base de datos SQLAlchemy
+# Crear motor (comunicación) de base de datos SQLAlchemy
 engine = create_engine(conexion_db)
 
-#Definir los datos
+# Definir los datos
 Base = declarative_base()
 
 class Usuarios(Base):
@@ -35,11 +35,12 @@ class Usuarios(Base):
     Nombres = Column(String(50), nullable=False)
     Apellidos = Column(String(50), nullable=False)
 
-#Realizar consultas y transacciones con la bd
-Session = sessionmaker(bind=engine)
-session = Session() 
+# Realizar consultas y transacciones con la bd
+DBSession = sessionmaker(bind=engine)
+db_session = DBSession()
 
-@app.route('/PaginaInicial')#para poder referenciar en los botones de retorno(atras)
+
+@app.route('/PaginaInicial')  # para poder referenciar en los botones de retorno (atrás)
 @app.route('/')
 def PaginaInicial():
     return render_template("pagina_inicial.html")
@@ -49,18 +50,18 @@ def InicioSesion():
     if request.method == 'POST':
         usuario = request.form.get('usuario')
         password = request.form.get('password')
-        if usuario and password:#Verifica si se llenaron los campos
-            user = session.query(Usuarios).filter_by(Usuario=usuario).first()#Busca en la tabla Usuarios en el primer registro donde se encuentre el valor de usuario
-            if user != None and user.Password == password:#Verifica que tanto usuario existe y la contraseña coincidan 
+        if usuario and password:  # Verifica si se llenaron los campos
+            user = db_session.query(Usuarios).filter_by(Usuario=usuario).first()  # Busca en la tabla Usuarios en el primer registro donde se encuentre el valor de usuario
+            if user != None and user.Password == password:  # Verifica que tanto usuario existe y la contraseña coincidan 
+                
                 return render_template("Analisis.html")
             else:
-                return render_template("inicio_sesion.html", error="Usuario o contraseña incorrectos.")
+                return render_template("inicio_sesion.html", error1="Usuario o contraseña incorrectos.")
         else:
-            return render_template("inicio_sesion.html", error="Por favor ingrese todos los campos.")
+            return render_template("inicio_sesion.html", error1="Por favor ingrese todos los campos.")
     return render_template("inicio_sesion.html")
 
-
-@app.route('/Registrarse',methods=['GET', 'POST'])
+@app.route('/Registrarse', methods=['GET', 'POST'])
 def Registrarse():
     if request.method == 'POST':
         nombres = request.form.get('nombres')
@@ -70,17 +71,17 @@ def Registrarse():
         rpassword = request.form.get('rpassword')
         if nombres and apellidos and usuario and password == rpassword:
             # Verificar si el usuario ya existe
-            existe_usuario = session.query(Usuarios).filter_by(Usuario=usuario).first()
+            existe_usuario = db_session.query(Usuarios).filter_by(Usuario=usuario).first()
             if existe_usuario != None:
-                return render_template("registrarse.html", error="Ese nombre de Usuario ya esta en uso")
+                return render_template("registrarse.html", error="Ese nombre de Usuario ya está en uso")
             elif password != rpassword:
                 return render_template("registrarse.html", error="Las contraseñas no coinciden")
-            elif len(password)<8:
-                return render_template("registrarse.html", error="La contraseña debe tener minimo 8 caracteres")
+            elif len(password) < 8:
+                return render_template("registrarse.html", error="La contraseña debe tener mínimo 8 caracteres")
             try:
                 nuevo_usuario = Usuarios(Nombres=nombres, Apellidos=apellidos, Usuario=usuario, Password=password)
-                session.add(nuevo_usuario)
-                session.commit()
+                db_session.add(nuevo_usuario)
+                db_session.commit()
                 return render_template("inicio_sesion.html")
             except Exception as e:
                 print(e)
@@ -91,7 +92,7 @@ def Registrarse():
 
 @app.route('/Analisis')
 def Analisis():
-    return(render_template("Analisis.html"))
+    return render_template("Analisis.html")
 
 @app.route('/Reportes')
 def Reportes():

@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from routers import comentarios,analisis
 from fastapi.middleware.cors import CORSMiddleware
 
+#Creamos la aplicaion fastapi
 app = FastAPI()
 
 #CORS para que se comuniquen entre las apps en Localhost

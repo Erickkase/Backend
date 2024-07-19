@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/analisis.css')}}">
+    <!--Api Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Normalizar Estilos -->
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">    
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="box1">
+            <ul class="ul1">
+                <li class="header_imagen"><img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_banner"></li>
+                <li class="li2"><b>Comment Analyze</b></li>
+
+                <li class="li1"><a href="{{ url_for('Analisis', user=user) }}" class="a_estilo"><b>Analizar Por Video</b></a></li>
+                <li class="li1"><a href="{{ url_for('AnalisisCanal', user=user) }}" class="a_estilo"><b>Analizar Por Canal</b></a></li>
+                <li class="li1"><a href="{{ url_for('Reportes', user=user) }}" class="a_estilo"><b>Reportes</b></a></li>
+                <li class="li1"><a href="{{ url_for('Pregunta', user=user) }}" class="a_estilo"><b>Preguntar a la IA</b></a></li>
+            </ul>
+        </div>
+        <div class="box2">    
+            <ul class="ul2">
+                <li class="li1"><a href="/PaginaInicial" class="a_estilo">Cerrar Sesión</a></li>
+            </ul>
+        </div>   
+    </header>
+    <div>
+        <div class="container1">
+            <div class="box3">
+                <p class="p_titulos"><b>Bienvenido, {{ user }}</b></p>
+                <p class="p_titulos"><b>Instrucciones de uso</b></p>
+                <p class="p_palabaras">
+                    Para preguntar a la IA solo falta ingresar la pregunta o lo que deseas saber de tu ultima busqueda, darle click al boton de preguntar y obtendras tu respuesta.<br><br>
+                </p>
+                <p class="p_titulos"><b>Realiza una Pregunta</b></p>
+                <form action="{{ url_for('RealizarPregunta') }}" method="post">
+                    <input type="hidden" name="user" value="{{ user }}">
+                    <input class="txt_analizar" name="question" type="text" placeholder="Ingresa una Pregunta">
+                    <input class="btn_analizar" type="submit" value="Preguntar">
+                </form>
+                <br>
+            </div>
+        </div>
+        <br><br><br><hr class="box3">
+        <div class="box3">
+            <h3 class="h3"><b>Respuesta</b></h3>
+            <div class="subbox2">
+                {% if answer %}
+                    <label>{{ answer.respuesta }}</label>
+                {% endif %}
+            </div>
+            <br>
+        </div>
+        <br><br><br><hr class="box3">
+    </div>
+</body>
+</html>

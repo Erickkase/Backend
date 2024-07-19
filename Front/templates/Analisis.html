@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/analisis.css')}}">
+    <!--Api Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Normalizar Estilos -->
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">    
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="box1">
+            <ul class="ul1">
+                <li class="header_imagen"><img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_banner"></li>
+                <li class="li2"><b>Comment Analyze</b></li>
+
+                <li class="li1"><a href="{{ url_for('Analisis', user=user) }}" class="a_estilo"><b>Analizar Por Video</b></a></li>
+                <li class="li1"><a href="{{ url_for('AnalisisCanal', user=user) }}" class="a_estilo"><b>Analizar Por Canal</b></a></li>
+                <li class="li1"><a href="{{ url_for('Reportes', user=user) }}" class="a_estilo"><b>Reportes</b></a></li>
+                <li class="li1"><a href="{{ url_for('Pregunta', user=user) }}" class="a_estilo"><b>Preguntar a la IA</b></a></li>
+
+            </ul>
+        </div>
+        <div class="box2">    
+            <ul class="ul2">
+                <li class="li1"><a href="/PaginaInicial" class="a_estilo">Cerrar Sesión</a></li>
+            </ul>
+        </div>   
+    </header>
+    <div>
+        <div class="container1">
+            <div class="box3">
+                <p class="p_titulos"><b>Bienvenido, {{ user }}</b></p>
+                <p class="p_titulos"><b>Instrucciones de uso</b></p>
+                <p class="p_palabaras">
+                    Para utilizar la herramienta de análisis de comentarios de YouTube, simplemente sigue estos pasos: 
+                    Ingresa el enlace del video de YouTube que deseas analizar en el campo designado y haz clic en el
+                    botón "Analizar". La aplicación procesará los comentarios del video y te proporcionará un informe 
+                    detallado que incluye el análisis de sentimientos, modelo de negocio y visualizaciones interactivas
+                    de los datos.<br><br>
+                </p>
+                <p class="p_titulos"><b>Analiza un nuevo video</b></p>
+                <form action="{{ url_for('AnalizarVideo') }}" method="post">
+                    <input type="hidden" name="user" value="{{ user }}">
+                    <input class="txt_analizar" name="video_url" type="text" placeholder="Ingresa un enlace de YouTube">
+                    <input class="txt_analizar" name="num_comments" type="number" placeholder="Número de comentarios" min="1">
+                    <input class="btn_analizar" type="submit" value="Analizar">
+                </form>
+                <br>
+            </div>
+        </div>
+        <br><br><br><hr class="box3">
+        <div class="box3">
+            <h3 class="h3"><b>Análisis del Modelo de Negocio</b></h3>
+            <div class="subbox2">
+                {% if negocio %}
+                    <label>{{ negocio.respuesta }}</label>
+                {% endif %}
+            </div>
+            <br>
+        </div>
+        <br><br><br><hr class="box3">
+        <div class="box3">
+            <h3 class="h3"><b>Comentarios Encontrados</b></h3>
+            <div class="subbox1">
+                <table class="tabla1">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Usuario</th>
+                            <th>Comentario</th>
+                            <th>Me Gustas</th>
+                            <th>Url</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if comments %}
+                            {% for comment in comments %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ comment.author }}</td>
+                                <td>{{ comment.text | safe }}</td>
+                                <td>{{ comment.likes }}</td>
+                                <td><a href="{{ comment.video_url }}" target="_blank">Ver Video</a></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br><br><br><hr class="box3">
+    </div>
+</body>
+</html>

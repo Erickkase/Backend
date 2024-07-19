@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 
 client = OpenAI(
-    api_key="sk-proj-9mEN3LjtExcCfKu8sTwMT3BlbkFJ2FPPaUiZD1ty1dtZnN49",
+    api_key="OPEN_API_KEY",
 )
 
 

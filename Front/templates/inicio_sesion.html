@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/logins.css')}}">
+
+    <!--Api Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Normalizar Estilos -->
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">
+</head>
+
+<body class="body">
+    <div>
+        <div class="container"> 
+                <div class="boxsin">        
+                    <div class="inicio">
+                        <div class="inicio1_1">  
+                            <a href="/PaginaInicial"><input  class="boton1" type="button" name="boton_regresar" value = " Atras "></a>
+                        </div>
+                        <div class="inicio1_2">
+                            <img src="{{url_for('static', filename='./Images/image.png')}}" class="imagen_banner">
+                            <p class="text1"><b>Comment Analyze</b></p>
+                        </div>
+                    </div>
+                    <div class="inicio3">
+                        <p class="h1_pag1"><b>Inicia Sesión</b></p>
+                        <form class="formulario" action="/InicioSesion" method="post">
+                            <p class="text">Usuario</p>
+                            <input  class="textobox"  type="text" name ="usuario" placeholder="Usuario...">
+                            <p class="text">Contraseña</p>
+                            <input class="textobox" type="password" name="password" placeholder="Contraseña...">
+                            <br><br>
+                            <label class="text_error">{{error1}}</label>
+                            <br><br>
+                            <input class="boton2" type="submit" name="boton_continuar" value=" Continua ">
+                        </form>
+                        <br><br>
+                        <p class="text2">¿No tienes una cuenta? <a href="/Registrarse">Registrate</a></p>    
+                    </div>
+                      
+                </div>
+                <div class="boxsin12">
+                    <p><img src="{{url_for('static', filename='./Images/image_1.png')}}" class="imagen1"></p>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

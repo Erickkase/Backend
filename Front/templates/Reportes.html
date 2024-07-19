@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reportes</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/reportes.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.onload = function(){
+            var ctxPie = document.getElementById('graficopie1').getContext('2d');
+            var sentimientosLabels = ["Positivos", "Negativos", "Neutros"];
+            var sentimientosData = [
+                {{ sentiments['positivos'] }},
+                {{ sentiments['negativos'] }},
+                {{ sentiments['neutros'] }}
+            ];
+            var myPieChart = new Chart(ctxPie, {
+                type: 'doughnut',
+                data: {
+                    labels: sentimientosLabels,
+                    datasets: [{
+                        label: 'Sentimientos',
+                        data: sentimientosData,
+                        backgroundColor: [
+                            'rgb(75, 192, 192)',
+                            'rgb(255, 99, 132)',
+                            'rgb(201, 203, 207)'
+                        ],
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true,
+                        },
+                    },
+                    cutout: '60%' 
+                }
+            });
+
+            var ctxBar = document.getElementById('graficobarras3').getContext('2d');
+            var emociones = {{ emotions | safe }};
+            var myBarChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['Alegría', 'Ira', 'Sorpresa', 'Disgusto', 'Tristeza', 'Miedo', 'Otros'],
+                    datasets: [{
+                        data: [emociones.alegría, emociones.ira, emociones.sorpresa, emociones.disgusto, emociones.tristeza, emociones.miedo, emociones.otros],
+                        backgroundColor: [
+                            '#FF6384',
+                            '#36A2EB',
+                            '#FFCE56',
+                            '#4BC0C0',
+                            '#9966FF',
+                            '#FF9F40',
+                            '#C9CBCF'
+                        ]
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>    
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="box1">
+            <ul class="ul1">
+                <li class="header_imagen"><img src="{{url_for('static', filename='./Images/image.png')}}"  class="imagen_banner"></li>
+                <li class="li2"><b>Comment Analyze</b></li>
+                <li class="li1"><a href="{{ url_for('Analisis', user=user) }}" class="a_estilo"><b>Analizar Por Video</b></a></li>
+                <li class="li1"><a href="{{ url_for('AnalisisCanal', user=user) }}" class="a_estilo"><b>Analizar Por Canal</b></a></li>
+                <li class="li1"><a href="{{ url_for('Reportes', user=user) }}" class="a_estilo"><b>Reportes</b></a></li>
+                <li class="li1"><a href="{{ url_for('Pregunta', user=user) }}" class="a_estilo"><b>Preguntar a la IA</b></a></li>
+            </ul>
+        </div>
+        <div class="box2">   
+            <ul class="ul2">
+                <li class="li1"><a href="/PaginaInicial" class="a_estilo">Cerrar Sesión</a></li>
+            </ul>
+        </div>   
+    </header>
+    <div>
+        <div class="container1">
+            <div class="box3">
+                <p class="p_titulos"><b>Reportes de {{ user }}</b></p>
+                <br>
+            </div>
+        </div>
+        <br><br><hr class="box3"> 
+        <div class="box3">
+            <h3 class="h3"><b>Sentimientos de los Comentarios</b></h3>
+            <p class="p3">
+                Se han clasificado en Positivos, Negativos y Neutrales
+            </p>
+            <div class="subcontainer2">
+                <canvas id="graficopie1"></canvas>
+            </div>
+        </div>
+        <br><br><hr class="box3"> 
+        <div class="box3">
+            <h3 class="h4"><b>Emociones Encontradas</b></h3>
+            <div class="subcontainer1">
+                <canvas id="graficobarras3"></canvas>
+            </div>
+            <br>
+        </div>
+    </div>
+</body>
+</html>

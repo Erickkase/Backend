@@ -1,0 +1,188 @@
+.body{
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    box-shadow: 0 2px 10px rgb(158, 158, 158);
+    background-color: white; 
+}
+.ul1 {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.a_estilo{
+    color:  rgb(1, 1, 61);
+    text-decoration: none;
+
+}
+.a_estilo:hover{
+    color:  rgb(255, 255, 255);
+    text-decoration: none;
+
+}
+
+
+.li1 {
+    color: rgb(1, 1, 61);
+    margin-left: 20px;
+    padding: 22px;
+    text-align: center;
+    font-size: 18px;
+    transition: all 0.5s ease;
+}
+.li1:hover{
+    padding: 15px 15px;
+    background: rgb(1, 1, 61);
+    color: white;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+    
+}
+.li2 {
+    margin-left: 20px;
+    padding: 22px 22px 22px 0px;
+    text-align: center;
+    color: rgb(1, 1, 61);
+    font-size: 25px;
+}
+
+
+
+.ul2 {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header_imagen {
+    margin: 0 0px 0 10px;
+}
+
+
+.imagen_banner {
+    height: 70px;
+    width: 70px;
+}
+
+.container1 {
+    margin: 0;
+    padding-top: 77px;
+}
+.container2 {
+    background-color: rgb(238, 238, 238);
+    margin: 0;
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+}
+
+
+.box3{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.subbox1{
+    width: 100%;
+    margin: 0 auto;
+
+    border-radius: 10px;
+}
+
+.subbox2{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color:  rgb(238, 238, 238);
+}
+
+
+.p_titulos{
+    color: rgb(1, 1, 61);
+    font-size: 30px;
+    font-weight: 400;
+    margin: 40px 0px 20px;
+}
+
+.p_palabaras{
+    font-size: 17px;
+}
+
+.txt_analizar{
+    background-color: rgb(202, 202, 202);
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.btn_analizar{
+    background-color: rgb(7, 6, 107);
+    width: 150px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin: 10px;
+}
+
+.h2{
+    color: rgb(1, 1, 61);
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.h3{
+    color: rgb(1, 1, 61);
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+}
+.tabla1{
+    padding: 10px;
+    margin: 0;
+    align-items: center;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td {
+    padding: 15px 17.7px; 
+}
+tr:nth-child(odd) {
+    background-color:  rgb(238, 238, 238);
+}
+tr:hover {
+    background-color: #c0c0c0;
+}   

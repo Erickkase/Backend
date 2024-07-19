@@ -1,0 +1,147 @@
+.body{
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    overflow-y: hidden;
+}
+
+.container{
+    width: 100%;
+    height: 618px;
+    display: flex;
+    max-width: 2000px;
+    
+}
+
+.boxsin {
+    width: 50%;
+    display: inline-block;
+
+}
+
+.boxsin12{
+    background-color:  rgb(1, 1, 61);
+    width: 50%;
+    display: inline-block;
+}
+.inicio {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid  rgb(1, 1, 61);
+}
+
+img{
+    object-fit: scale-down;
+}
+
+.boton1{
+    background-color: rgb(1, 1, 61);
+    border-bottom: rgb(1, 1, 61);
+    color: #ffffff;
+    width: 65px;
+    height: 40px;
+    border-radius: 10px;
+}
+.boton1:hover{
+    color: rgb(45, 223, 230);
+}
+
+.imagen_banner{
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    object-fit: scale-down;
+}
+.imagen1{
+    padding:15% 12% 0% 12%;
+}
+.inicio1_1{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom:0px ;
+    
+}
+
+.inicio1_2{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    padding: 0px 20% 0px 0px;
+    margin: 0px;
+    
+}
+
+.inicio3 {
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 12%;
+}   
+
+.h1_pag1{
+    color: rgb(1, 1, 61);
+    font-size: 30px;
+    margin: 5px;
+    text-align: center; 
+    
+}
+.h1_pag2{
+    text-align: left;
+    padding-left: 105px ;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+.text {
+    font-size: 18px;
+    margin: 0;
+    padding: 8px 8px 8px 0px;
+    text-align: left;
+}
+
+.text1 {
+    font-size: 20px;
+    text-align: left; 
+}
+
+.boton2{
+    background-color: rgb(1, 1, 61);
+    color: #ffffff;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+
+}
+.boton2:hover{
+    color: rgb(45, 223, 230);
+}
+
+.textobox{
+    background-color: rgb(224, 224, 241);
+    color: #000000;
+    border-radius: 5px;
+    border: none;
+    width: 80%;
+    height: 32px;
+    font-size: 14px;
+}
+
+.formulario{
+    margin: 50px;
+    width: 500px;
+}
+.txt_error{
+    color: red;
+    font-size: 15px;
+}
+.pading_boton{
+    padding-left: 105px;
+}

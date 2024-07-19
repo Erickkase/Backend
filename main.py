@@ -1,10 +1,11 @@
+#Librerias de FastApi
 from fastapi import FastAPI
 from routers import comentarios,analisis
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-#CORS
+#CORS para que se comuniquen entre las apps en Localhost
 origins = [
     "http://localhost:5000",
 ]
@@ -21,6 +22,7 @@ app.add_middleware(
 app.include_router(comentarios.router)
 app.include_router(analisis.router)
 
+
 @app.get("/")
 async def root():
-    return "Proyecto Desarrollo de Sistemas" 
+    return "Proyecto Desarrollo de Sistemas de la Informacion" 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/registrarse.css')}}">
+    <!--Api Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Normalizar Estilos -->
+    <link rel="stylesheet" href="{{url_for('static', filename='./CSS/normalize.css')}}">
+
+
+</head>
+
+<body class="body">
+    <div class="container"> 
+            <div class="boxsin">        
+                <div class="inicio">
+                    <div class="inicio1_1">  
+                        <a href="/PaginaInicial"><input  class="boton1" type="button" name="boton_regresar" value = " Atras "></a>
+                    </div>
+                    <div class="inicio1_2">
+                        <img src="{{url_for('static', filename='./Images/image.png')}}" class="imagen_banner">
+                        <p class="text1"><b>Comment Analyze</b></p>
+                    </div>
+                </div>
+                <div class="inicio3">
+                    <p class="h1_pag2"><b>Registrate</b></p>
+                    <form action="/Registrarse" method="POST">
+                        <p class="text">Nombres</p>
+                        <input  class="textobox" name="nombres"  type="text" id="txt_nombres" placeholder="Nombres...">      
+                        <p class="text">Apellidos</p>
+                        <input  class="textobox" name="apellidos"  type="text" id="txt_apellidos" placeholder="Apellidos..."> 
+                        <p class="text">Usuario</p>
+                        <input  class="textobox" name="usuario"  type="text" id="txt_usuario" placeholder="Usuario...">
+                        <p class="text">Contraseña</p>
+                        <input class="textobox"  name="password" type="password" id="txt_password" placeholder="Contraseña...">
+                        <p class="text">Repetir Contraseña</p>
+                        <input  class="textobox" name="rpassword" type="password" id="txt_rpassword" placeholder="Contraseña...">
+                        <br><br>
+                        <label class="txt_error">{{error}}</label>
+                        <br><br>
+                        <label class="pading_boton"> <input class="boton2" type="submit"  name="boton_continuar" value="Crear Cuenta" id="btn_crearcuenta"></label>
+                    </form>   
+                </div>      
+            </div>
+            <div class="boxsin12">
+                <img src="{{url_for('static', filename='./Images/image_1.png')}}" class="imagen1">
+            </div>
+    </div>
+</body>
+</html>

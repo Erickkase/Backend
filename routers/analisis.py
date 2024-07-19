@@ -5,15 +5,16 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
-
 client = OpenAI(
-    api_key="sk-proj-w8m8wA46WwCM1zlxGe0lT3BlbkFJ0bvgxlNB0plgIK8YulJw",
+    api_key="sk-proj-9mEN3LjtExcCfKu8sTwMT3BlbkFJ2FPPaUiZD1ty1dtZnN49",
 )
 
 
+#Crea el analizador de los sentimientos
 analyzer = create_analyzer(task="sentiment", lang="es")
+
+#Crea el analizador de emociones
+emotion_analyzer = create_analyzer(task="emotion", lang="es")
 
 
 router=APIRouter(prefix="/analisis",tags=["analisis"],responses={404:{"message":"No encontrado"}})
@@ -46,6 +47,7 @@ async def pregunta(usuario: str, pregunta: str):
     try:
         response = client.chat.completions.create(
             model="gpt-3.5-turbo", 
+            temperature=0.3,
             messages=[
                 {"role": "user", "content": f"En Base a estos Comentarios: {context} responde la Pregunta: {pregunta} "},
             ],
@@ -93,6 +95,53 @@ async def sentimiento(usuario: str):
         "neutros": contador_neu
     }
     
+
+@router.get("/emocion/")
+async def emocion(usuario: str):
+    ultima_busqueda = obtener_ultima_busqueda(usuario)
+
+    if isinstance(ultima_busqueda, dict) and "message" in ultima_busqueda:
+        return ultima_busqueda
+    
+    comentarios_text = []
+
+    comentarios = ultima_busqueda["ultima_busqueda"].get("comentarios", [])
+
+    for comentario in comentarios:
+        if "text" in comentario:
+            comentarios_text.append(comentario["text"])
+
+    emociones = {
+        "alegría": 0,
+        "ira": 0,
+        "sorpresa": 0,
+        "disgusto": 0,
+        "tristeza": 0,
+        "miedo": 0,
+        "otros": 0
+    }
+
+    for texto in comentarios_text:
+        resultado = emotion_analyzer.predict(texto)
+        emocion = resultado.output
+
+        if emocion == "joy":
+            emociones["alegría"] += 1
+        elif emocion == "anger":
+            emociones["ira"] += 1
+        elif emocion == "surprise":
+            emociones["sorpresa"] += 1
+        elif emocion == "disgust":
+            emociones["disgusto"] += 1
+        elif emocion == "sadness":
+            emociones["tristeza"] += 1
+        elif emocion == "fear":
+            emociones["miedo"] += 1
+        else:
+            emociones["otros"] += 1
+
+    return emociones
+
 
 #Funciones
 def obtener_ultima_busqueda(usuario: str):

@@ -27,6 +27,7 @@ async def latest_videos(usuario: str, handle: str):
         {"$push": {"busquedas": busqueda}, "$setOnInsert": {"usuario": usuario}},
         upsert=True 
     )
+    
     return {"videos": videos}
 
 # Solicitud para los comentarios más likeados
@@ -95,7 +96,7 @@ def get_channel_id_by_handle(handle: str) -> str:
     if "items" in response and len(response["items"]) > 0:
         return response["items"][0]["snippet"]["channelId"]
     else:
-        raise HTTPException(status_code=404, detail="Channel not found")
+        raise HTTPException(status_code=404, detail="Canal no encontrado")
     
 # Función para obtener los últimos videos del canal
 def get_latest_videos(channel_id: str):

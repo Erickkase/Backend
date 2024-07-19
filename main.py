@@ -6,7 +6,7 @@ app = FastAPI()
 
 #CORS
 origins = [
-    "http://localhost:8080",
+    "http://localhost:5000",
 ]
 
 app.add_middleware(

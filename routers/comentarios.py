@@ -65,8 +65,10 @@ def get_video_id_from_url(url: str) -> str:
     #Funcion para convertir en tupla la url
     parsed_url = urlparse(url)
 
-    #Funcion 
+    #Funcion para conseguir el id del video
     video_id = parse_qs(parsed_url.query).get("v")
+
+    #Si existe el video retorna el id, si no retorna Invalid YouTube URL
     if video_id:
         return video_id[0]
     else:
@@ -78,26 +80,34 @@ def get_top_comments(video_id: str, num_comments: int = 5):
     #Creamos las credenciales para usar el api de Youtube
     youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
     
+    #Creamos la peticion para que nos traiga en tipo lista los comentarios por el video id por la relevancia que tiene es decir los likes
     request = youtube.commentThreads().list(
         part="snippet",
         videoId=video_id,
-        maxResults=num_comments,  # Obtener el número específico de comentarios
+        maxResults=num_comments,
         order="relevance"
     )
+
+    #Realizamos la peticion al api
     response = request.execute()
     
+    #Creamos una lista de los comentarios
     comments = []
+
+    #Agrega los comentarios con el author el texto los likes y el video url
     for item in response.get("items", []):
         top_comment = item["snippet"]["topLevelComment"]["snippet"]
         comments.append({
             "author": top_comment["authorDisplayName"],
             "text": top_comment["textDisplay"],
             "likes": top_comment["likeCount"],
-            "video_url": f"https://www.youtube.com/watch?v={video_id}"  # Incluir la URL del video
+            "video_url": f"https://www.youtube.com/watch?v={video_id}"  
         })
 
+    #Ordena la lista de los comentarios por los likes
     comments_sorted = sorted(comments, key=lambda x: x["likes"], reverse=True)[:num_comments]
     
+    #Regresa los comentarios ordenados
     return comments_sorted
 
 
